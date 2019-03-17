@@ -406,7 +406,7 @@ def create_segments_directory(
     [image_set, depths] = load_dataset(input_filename)
     # no_segments = no_superpixels * len(images)
 
-    print "image_set shape: ", image_set.shape
+    print("image_set shape: ", image_set.shape)
     # Create output directory
     if not os.path.exists(image_output_filepath):
         os.makedirs(image_output_filepath)
@@ -414,7 +414,7 @@ def create_segments_directory(
 
     for image_idx in images:
 
-        print 'processing image', image_idx
+        print('processing image', image_idx)
         
         # Preprocess image 
         [image_segments, mask, segment_depths] = preprocess_image(image_set[image_idx[0]],true_depth=depths[image_idx[0]],

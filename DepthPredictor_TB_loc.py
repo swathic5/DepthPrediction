@@ -207,8 +207,8 @@ plt.show()
 
 
 #%%
-print DP.unaryCNN.blobs['fc6'].data.shape
-print predicted
+print(DP.unaryCNN.blobs['fc6'].data.shape)
+print(predicted)
 #plt.subplot(211)
 plt.plot((np.argmax(predictions,axis=1)),'b')
 plt.hold
@@ -228,7 +228,7 @@ dist1 = distances[1,:,:]
 
 pairwise_costs = np.round(dist1)
 #pairwise_costs = np.eye(16)
-print "out keys: ",out.keys()
+print("out keys: ",out.keys())
 
 
 
@@ -261,8 +261,8 @@ x_thresh = np.argmin(unaries, axis=2)
 
 # potts potential
 pairwise_potts = -2 * np.eye(4, dtype=np.int32)
-print unaries.shape
-print pairwise_potts.shape
+print (unaries.shape)
+print (pairwise_potts.shape)
 result = pygco.cut_simple_vh(unaries, 10 * pairwise_potts, 1,1)
 # potential that penalizes 0-1 and 1-2 less thann 0-2
 pairwise_1d = -15 * np.eye(3, dtype=np.int32) - 8
@@ -289,7 +289,7 @@ plt.subplot(211)
 plt.plot(DP.unaryCNN.blobs['fc_n2'].data.ravel())
 #print DP.unaryCNN.params['fc_n2']
 plt.subplot(212)
-print[(k, v[0].data.shape) for k, v in DP.unaryCNN.params.items()]
+print ([(k, v[0].data.shape) for k, v in DP.unaryCNN.params.items()])
 #print DP.unaryCNN.params['fc_n2'][0].data[0,0,0,:]
 plt.plot(DP.unaryCNN.params['fc_n2'][0].data[0,0,0,:])
  
@@ -318,7 +318,7 @@ DP.load(model_file=modfile, pretrained_file=prefile, meanfile=setmean)
 
 for ii in np.random.choice(range(0,len(splits)),10):
     img_ind = int(splits[ii])
-    print "Img Ind is: ",img_ind
+    print ("Img Ind is: ",img_ind)
 #img_ind = 920# 600 #1337
     n_pix = 600
 
@@ -334,7 +334,7 @@ for ii in np.random.choice(range(0,len(splits)),10):
     depth_image = apply_depths(segment_depths, masks)
 
     rmserr = np.linalg.norm(depth_image.ravel() - predicted.ravel())/np.product(predicted.shape)
-    print "RMS percent error = ", 100*rmserr
+    print ("RMS percent error = ", 100*rmserr)
 
     total_predicts.append(predicted.ravel())
     total_truths.append(depth_image.ravel())
