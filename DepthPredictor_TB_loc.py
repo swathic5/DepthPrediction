@@ -21,9 +21,16 @@ golden_mean = (np.sqrt(5)-1.0)/2.0         # Aesthetic ratio
 fig_width = fig_width_pt*inches_per_pt  # width in inches
 fig_height = fig_width*golden_mean      # height in inches
 fig_size =  [fig_width+1,fig_height+1]
+# params = {'backend': 'ps',
+#           'axes.labelsize': 12,
+#           'text.fontsize': 10,
+#           'legend.fontsize': 10,
+#           'xtick.labelsize': 8,
+#           'ytick.labelsize': 8,
+#           'text.usetex': False,
+#           'figure.figsize': fig_size}
 params = {'backend': 'ps',
           'axes.labelsize': 12,
-          'text.fontsize': 10,
           'legend.fontsize': 10,
           'xtick.labelsize': 8,
           'ytick.labelsize': 8,
@@ -38,7 +45,10 @@ get_ipython().magic('autoreload 2')
 
 # big plots:
 import matplotlib
-matplotlib.rcParams['savefig.dpi'] = 2 * matplotlib.rcParams['savefig.dpi']
+default_dpi = matplotlib.rcParams['savefig.dpi']
+if default_dpi == "figure":
+    default_dpi = 360.0
+matplotlib.rcParams['savefig.dpi'] = 2 * default_dpi
 
 
 def load_csv(path):
