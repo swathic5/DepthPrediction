@@ -11,7 +11,7 @@ from image_handling import segment_image
 import scipy.io
 
 # Load splits
-splits_path = '/home/vlf/Projects/DepthPrediction/train/NYUv2/splits.mat'
+splits_path = './train/NYUv2/splits.mat'
 splits = scipy.io.loadmat(splits_path)
 train_inds = splits['trainNdxs']
 test_inds = splits['testNdxs']
@@ -33,8 +33,8 @@ average_type=1     # 0: center val, 1:superpixel avg, 2:patch avg
 # matlab file
 input_file = 'train/nyu_depth_v2_labeled.mat'
 # Directory of images
-img_filepath_train = '/home/vlf/Projects/DepthPrediction/train/NYUv2/train_full_167_v3'
-img_filepath_test = '/home/vlf/Projects/DepthPrediction/train/NYUv2/test_full_167_v3'
+img_filepath_train = './train/NYUv2/train_full_167_v3'
+img_filepath_test = './train/NYUv2/test_full_167_v3'
 
 train_slices = np.array_split(train_inds - 1,10)
 test_slices = np.array_split(test_inds - 1, 10)

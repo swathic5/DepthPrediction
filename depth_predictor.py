@@ -2,7 +2,7 @@ import numpy as np
 import caffe
 import image_handling
 import matplotlib.pyplot as plt
-from gco_python import pygco
+import pygco
 
 class DepthPredictor():
    def __init__(self):
