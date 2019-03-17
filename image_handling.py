@@ -508,7 +508,7 @@ def preprocess_image(
 
     if true_depth is not None:
          return image_segments, masks, segment_depths
-     else:
+    else:
          return image_segments, masks
 
 def logistic_vector_dist(vector1, vector2, gamma=1):
