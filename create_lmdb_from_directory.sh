@@ -2,13 +2,13 @@
 # Create the imagenet lmdb inputs
 # N.B. set the path to the imagenet train + val data dirs
 
-OUTDIR=~/Projects/DepthPrediction
-TOOLS=$CAFFE_HOME/build/tools
+OUTDIR=${DP}
+TOOLS=${CAFFE_PATH}/build/tools
 
-TRAIN_DATA_ROOT=make_mean_hack/
+TRAIN_DATA_ROOT=${DP}/train/NYUv2/train_full_167_v3/
 #VAL_DATA_ROOT=/home/vlf/Projects/DepthPrediction/train/NYUv2/test_full_167_v2/
 
-IND_NAME=index.txt
+IND_NAME=index_32_1.txt
 OUT_NAME=mean_hack_lmdb
 
 RESIZE=true
