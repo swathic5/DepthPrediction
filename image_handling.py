@@ -426,7 +426,9 @@ def create_segments_directory(
 
             # write image
             if output_images:
-                scipy.misc.imsave(image_output_filepath + '/' + name,np.transpose(image_segments[i, ...],(0,2,1)))
+                img_np = np.transpose(image_segments[i, ...],(2,1,0))
+                print(img_np.shape)
+                scipy.misc.imsave(image_output_filepath + '/' + name, img_np)
 
             out_log.write(image_output_filepath + '/' + name + ' ' + str(int(segment_depths[i])) + '\n')
 

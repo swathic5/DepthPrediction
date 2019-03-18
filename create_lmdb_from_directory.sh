@@ -5,7 +5,7 @@
 OUTDIR=${DP}
 TOOLS=${CAFFE_PATH}/build/tools
 
-TRAIN_DATA_ROOT=${DP}/train/NYUv2/train_full_167_v3/
+TRAIN_DATA_ROOT=${DP}/train/NYUv2/data/
 #VAL_DATA_ROOT=/home/vlf/Projects/DepthPrediction/train/NYUv2/test_full_167_v2/
 
 IND_NAME=index_32_1.txt
@@ -40,7 +40,7 @@ GLOG_logtostderr=1 $TOOLS/convert_imageset \
     --resize_height=$RESIZE_HEIGHT \
     --resize_width=$RESIZE_WIDTH \
     --shuffle \
-    $TRAIN_DATA_ROOT \
+    $DP/ \
     $TRAIN_DATA_ROOT/$IND_NAME \
     $OUTDIR/$OUT_NAME
 
